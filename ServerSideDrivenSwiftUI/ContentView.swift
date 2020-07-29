@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var model = HomeViewUIModelProvider<BlogPosts>()
     var body: some View {
-        Text("Hello, world!").padding()
+        model.content
     }
 }
 
