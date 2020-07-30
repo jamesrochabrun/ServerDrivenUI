@@ -11,7 +11,7 @@ import SwiftUI
 struct ServerSideDrivenSwiftUIApp: App {
     
     // MARK:- Providers
-    @StateObject private var homeFeed = HomeFeedProvider<Feed<BlogPost>>()
+    @StateObject private var homeFeed = HomeFeedProvider<FeedList<FeedListItem>>()
     
     // MARK:- App Scene
     var body: some Scene {

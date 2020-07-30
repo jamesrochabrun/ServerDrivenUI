@@ -22,7 +22,7 @@ final class UIClient: GenericAPI {
     
     func getBlogPost<T: DecodableView>() -> AnyPublisher<T, Error>  {
         
-        let urlString = "https://run.mocky.io/v3/e2c21977-b893-42c0-9428-a6ac74e80e54"
+        let urlString = "https://run.mocky.io/v3/d2f73204-16e7-44ef-bfa8-de5f6a32ff53"
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
         return execute(request, decodingType: T.self)
