@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct ServerSideDrivenSwiftUIApp: App {
+    
+    // MARK:- Providers
+    @StateObject private var homeFeed = HomeFeedProvider<Feed<BlogPost>>()
+    
+    // MARK:- App Scene
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            homeFeed.content
         }
     }
 }

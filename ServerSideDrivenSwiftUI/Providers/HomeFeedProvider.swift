@@ -1,5 +1,5 @@
 //
-//  HomeViewUIModelProvider.swift
+//  HomeFeedProvider.swift
 //  ServerSideDrivenSwiftUI
 //
 //  Created by James Rochabrun on 7/26/20.
@@ -9,24 +9,23 @@ import Foundation
 import Combine
 import SwiftUI
 
+/// **
+///  Represents the view provider for every tab or root view.
+///
+/// */
 
-final class HomeViewUIModelProvider<T: DecodableView>: ObservableObject {
+final class HomeFeedProvider<Content: DecodableView>: ObservableObject {
     
     // MARK:- Subscribers
-  // 2
     private var cancellable: AnyCancellable?
     
     // MARK:- Publishers
-  // 3
-    @Published var content: T?
+    @Published var content: Content?
 
     // MARK:- Private properties
-  // 4
     private let client = UIClient()
     
     init() {
-      // 5
-                
         cancellable = client.getBlogPost().sink(receiveCompletion: { published in
             dump(published)
         }, receiveValue: { post in
@@ -34,3 +33,5 @@ final class HomeViewUIModelProvider<T: DecodableView>: ObservableObject {
         })
     }
 }
+
+
